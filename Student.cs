@@ -1,32 +1,20 @@
-﻿//Create and initialize the collections:
-using OOPTask6B;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-AllStudents allStudents = new AllStudents();
-
-AllUserNames allUserNames = new AllUserNames();
-
-//Joe has forgotten the passwork. Find it
-List<Result> results1 = allUserNames.FindPassword(allUserNames, allStudents, "Joe");
-
-if (results1.Count() > 0)
-    foreach (var item in results1)
+namespace OOPTask6B
+{
+    internal class Student
     {
-        Console.WriteLine("Student name: {0}, username: {1}, password: {2}",
-            item.Studentname, item.Username, item.Password);
+        public Student(int id, string studentName)
+        {
+            Id = id;
+            StudentName = studentName;
+        }
+
+        public int Id { get; set; }
+        public string StudentName { get; set; }
     }
-else
-    Console.WriteLine("No hit was found.");
-
-
-
-//Whose username is "morning..."
-List<Result> results2 = allStudents.FindStudent(allUserNames, allStudents, "morning");
-
-if (results2.Count() > 0)
-    foreach (var item in results2)
-    {
-        Console.WriteLine("Student name: {0}, username: {1}, password: {2}",
-            item.Studentname, item.Username, item.Password);
-    }
-else
-    Console.WriteLine("No hit was found.");
+}
